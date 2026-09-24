@@ -60,6 +60,7 @@
             <label class="flex items-center space-x-2 p-2 bg-gray-50 rounded hover:bg-teal-50 cursor-pointer transition-colors"><input type="checkbox" name="groups" value="資訊美編組" class="text-teal-600 rounded focus:ring-teal-500"><span class="text-gray-700">資訊美編組</span></label>
             <label class="flex items-center space-x-2 p-2 bg-gray-50 rounded hover:bg-teal-50 cursor-pointer transition-colors"><input type="checkbox" name="groups" value="人資組" class="text-teal-600 rounded focus:ring-teal-500"><span class="text-gray-700">人資組</span></label>
             <label class="flex items-center space-x-2 p-2 bg-gray-50 rounded hover:bg-teal-50 cursor-pointer transition-colors"><input type="checkbox" name="groups" value="茶藝組" class="text-teal-600 rounded focus:ring-teal-500"><span class="text-gray-700">茶藝組</span></label>
+            <label class="flex items-center space-x-2 p-2 bg-gray-50 rounded hover:bg-teal-50 cursor-pointer transition-colors"><input type="checkbox" name="groups" value="工作人員" class="text-teal-600 rounded focus:ring-teal-500"><span class="text-gray-700">工作人員</span></label>
           </div>
         </div>
 
@@ -131,6 +132,15 @@
 
       // 使用 URLSearchParams 解決 CORS 問題
       const formData = new FormData(form);
+
+      // 若聯絡方式為手機，在號碼前方加上單引號 '，避免 Google 試算表自動轉為純數字而吃掉開頭的 0
+      const contactType = form.querySelector('input[name="contact_type"]:checked')?.value;
+      const contactInfoInput = document.getElementById('contact_info');
+      if (contactType === '手機' && contactInfoInput) {
+        const phone = contactInfoInput.value.trim();
+        formData.set('contact_info', "'" + phone);
+      }
+
       const data = new URLSearchParams(formData);
 
       fetch(SCRIPT_URL, {
