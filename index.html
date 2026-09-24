@@ -92,66 +92,34 @@
   </div>
 
   <script>
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyd1B-hVM1TIEdKHYYI7CnZgf8ljfYrLXC5PeqGRlpbfHTWwtHgMFvGRB5XgLz951RC/exec'; 
+const formData = new FormData(form);
+      const data = new URLSearchParams(formData);
 
-    function switchContactMode() {
-      const type = document.querySelector('input[name="contact_type"]:checked').value;
-      const input = document.getElementById('contact_info');
-      input.value = ''; 
-      
-      if (type === 'LINE ID') {
-        input.type = 'text';
-        input.placeholder = '請輸入 LINE ID (限英數)';
-        input.pattern = '[A-Za-z0-9._\\-]+';
-        input.title = '請輸入英文或數字';
-      } else {
-        input.type = 'tel';
-        input.placeholder = '請輸入手機號碼 (限數字)';
-        input.pattern = '[0-9]+';
-        input.title = '請輸入數字';
-      }
-    }
-
-    const form = document.getElementById('registrationForm');
-    const submitBtn = document.getElementById('submitBtn');
-
-    form.addEventListener('submit', e => {
-      e.preventDefault(); 
-      
-      const checkedGroups = document.querySelectorAll('input[name="groups"]:checked');
-      if(checkedGroups.length === 0) {
-        alert("請至少選擇一個組別！");
-        return;
-      }
-
-      submitBtn.disabled = true;
-      submitBtn.innerText = '資料送出中...';
-      submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
-
+      // 收集表單資料發送給 Apps Script
       fetch(SCRIPT_URL, {
         method: 'POST',
-        body: new FormData(form)
+        body: data // 改傳遞 data
       })
       .then(response => response.json())
       .then(data => {
         if(data.result === 'success') {
           alert('報名成功！期待在迎新活動見到您。');
-          form.reset(); 
-          switchContactMode(); 
+          form.reset(); // 清空表單
+          switchContactMode(); // 重置聯絡方式狀態
         } else {
           alert('發生錯誤，請稍後再試。');
         }
       })
       .catch(error => {
         console.error('Error:', error);
-        alert('網路錯誤，資料可能未送出。');
+        alert('網路錯誤，資料可能未送出。請檢查網路連線或稍後再試。');
       })
       .finally(() => {
+        // 恢復按鈕狀態
         submitBtn.disabled = false;
         submitBtn.innerText = '送出報名資料';
         submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
       });
-    });
   </script>
 </body>
 </html>
