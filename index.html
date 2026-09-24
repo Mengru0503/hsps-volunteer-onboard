@@ -176,6 +176,14 @@
       // 使用 URLSearchParams 解決 CORS 問題
       const formData = new FormData(form);
 
+      // 將多選組別合併為以頓號「、」分隔的字串，避免後端 GAS 只抓到單一組別
+      const groupList = Array.from(checkedGroups).map(cb => cb.value).join('、');
+      formData.set('groups', groupList);
+
+      // 確保時數需求欄位有被明確寫入 formData
+      const needHours = form.querySelector('input[name="need_training_hours"]:checked')?.value || '否';
+      formData.set('need_training_hours', needHours);
+
       // 若聯絡方式為手機，在號碼前方加上單引號 '，避免 Google 試算表自動轉為純數字而吃掉開頭的 0
       const contactType = form.querySelector('input[name="contact_type"]:checked')?.value;
       const contactInfoInput = document.getElementById('contact_info');
