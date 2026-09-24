@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>胡適國小 115學年度志工迎新活動 報名表</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#56B4C2] font-sans antialiased text-gray-800 selection:bg-teal-200">
+
+  <div class="min-h-screen flex flex-col items-center py-6 px-4 sm:px-6 lg:px-8">
+    
+    <!-- 主視覺 (Hero 圖片) 區塊 -->
+    <div class="w-full max-w-md bg-white rounded-t-2xl shadow-lg overflow-hidden">
+      <img src="hero.png" alt="胡適國小志工迎新活動主視覺" class="w-full h-auto object-cover block border-b-4 border-[#56B4C2]">
+    </div>
+
+    <!-- 報名表單區塊 -->
+    <div class="w-full max-w-md bg-white rounded-b-2xl shadow-lg p-6 sm:p-8 mb-8">
+      
+      <form id="registrationForm">
+        
+        <!-- 姓名 -->
+        <div class="mb-5">
+          <label class="block text-sm font-bold mb-2 text-gray-700">姓名 <span class="text-red-500">*</span></label>
+          <input type="text" name="name" required
+                 class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-shadow" 
+                 placeholder="請輸入您的真實姓名">
+        </div>
+
+        <!-- 志工身份 -->
+        <div class="mb-5">
+          <label class="block text-sm font-bold mb-2 text-gray-700">志工身份 <span class="text-red-500">*</span></label>
+          <div class="flex gap-4">
+            <label class="flex items-center cursor-pointer">
+              <input type="radio" name="status" value="新志工" required class="w-4 h-4 text-teal-600 focus:ring-teal-500 border-gray-300">
+              <span class="ml-2 text-gray-700">新志工</span>
+            </label>
+            <label class="flex items-center cursor-pointer">
+              <input type="radio" name="status" value="舊志工" required class="w-4 h-4 text-teal-600 focus:ring-teal-500 border-gray-300">
+              <span class="ml-2 text-gray-700">舊志工</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 組別 (多選) -->
+        <div class="mb-5">
+          <label class="block text-sm font-bold mb-2 text-gray-700">組別 <span class="text-red-500">*</span></label>
+          <div class="grid grid-cols-2 gap-3 text-sm">
+            <label class="flex items-center space-x-2 p-2 bg-gray-50 rounded hover:bg-teal-50 cursor-pointer transition-colors"><input type="checkbox" name="groups" value="交通導護組" class="text-teal-600 rounded focus:ring-teal-500"><span class="text-gray-700">交通導護組</span></label>
+            <label class="flex items-center space-x-2 p-2 bg-gray-50 rounded hover:bg-teal-50 cursor-pointer transition-colors"><input type="checkbox" name="groups" value="安全照護組" class="text-teal-600 rounded focus:ring-teal-500"><span class="text-gray-700">安全照護組</span></label>
+            <label class="flex items-center space-x-2 p-2 bg-gray-50 rounded hover:bg-teal-50 cursor-pointer transition-colors"><input type="checkbox" name="groups" value="數學輔導組" class="text-teal-600 rounded focus:ring-teal-500"><span class="text-gray-700">數學輔導組</span></label>
+            <label class="flex items-center space-x-2 p-2 bg-gray-50 rounded hover:bg-teal-50 cursor-pointer transition-colors"><input type="checkbox" name="groups" value="國語輔導組" class="text-teal-600 rounded focus:ring-teal-500"><span class="text-gray-700">國語輔導組</span></label>
+            <label class="flex items-center space-x-2 p-2 bg-gray-50 rounded hover:bg-teal-50 cursor-pointer transition-colors"><input type="checkbox" name="groups" value="英語輔導組" class="text-teal-600 rounded focus:ring-teal-500"><span class="text-gray-700">英語輔導組</span></label>
+            <label class="flex items-center space-x-2 p-2 bg-gray-50 rounded hover:bg-teal-50 cursor-pointer transition-colors"><input type="checkbox" name="groups" value="健康服務組" class="text-teal-600 rounded focus:ring-teal-500"><span class="text-gray-700">健康服務組</span></label>
+            <label class="flex items-center space-x-2 p-2 bg-gray-50 rounded hover:bg-teal-50 cursor-pointer transition-colors"><input type="checkbox" name="groups" value="圖書組" class="text-teal-600 rounded focus:ring-teal-500"><span class="text-gray-700">圖書組</span></label>
+            <label class="flex items-center space-x-2 p-2 bg-gray-50 rounded hover:bg-teal-50 cursor-pointer transition-colors"><input type="checkbox" name="groups" value="熊熊輔導組" class="text-teal-600 rounded focus:ring-teal-500"><span class="text-gray-700">熊熊輔導組</span></label>
+            <label class="flex items-center space-x-2 p-2 bg-gray-50 rounded hover:bg-teal-50 cursor-pointer transition-colors"><input type="checkbox" name="groups" value="園藝組" class="text-teal-600 rounded focus:ring-teal-500"><span class="text-gray-700">園藝組</span></label>
+            <label class="flex items-center space-x-2 p-2 bg-gray-50 rounded hover:bg-teal-50 cursor-pointer transition-colors"><input type="checkbox" name="groups" value="生活媽媽組" class="text-teal-600 rounded focus:ring-teal-500"><span class="text-gray-700">生活媽媽組</span></label>
+            <label class="flex items-center space-x-2 p-2 bg-gray-50 rounded hover:bg-teal-50 cursor-pointer transition-colors"><input type="checkbox" name="groups" value="資訊美編組" class="text-teal-600 rounded focus:ring-teal-500"><span class="text-gray-700">資訊美編組</span></label>
+            <label class="flex items-center space-x-2 p-2 bg-gray-50 rounded hover:bg-teal-50 cursor-pointer transition-colors"><input type="checkbox" name="groups" value="人資組" class="text-teal-600 rounded focus:ring-teal-500"><span class="text-gray-700">人資組</span></label>
+            <label class="flex items-center space-x-2 p-2 bg-gray-50 rounded hover:bg-teal-50 cursor-pointer transition-colors"><input type="checkbox" name="groups" value="茶藝組" class="text-teal-600 rounded focus:ring-teal-500"><span class="text-gray-700">茶藝組</span></label>
+          </div>
+        </div>
+
+        <!-- 聯絡方式 -->
+        <div class="mb-8">
+          <label class="block text-sm font-bold mb-2 text-gray-700">聯絡方式 <span class="text-red-500">*</span></label>
+          <div class="flex gap-4 mb-3">
+            <label class="flex items-center cursor-pointer">
+              <input type="radio" name="contact_type" value="LINE ID" class="w-4 h-4 text-teal-600 focus:ring-teal-500 border-gray-300" onchange="switchContactMode()" checked>
+              <span class="ml-2 text-gray-700">LINE ID</span>
+            </label>
+            <label class="flex items-center cursor-pointer">
+              <input type="radio" name="contact_type" value="手機" class="w-4 h-4 text-teal-600 focus:ring-teal-500 border-gray-300" onchange="switchContactMode()">
+              <span class="ml-2 text-gray-700">手機</span>
+            </label>
+          </div>
+          <input type="text" id="contact_info" name="contact_info" required 
+                 pattern="[A-Za-z0-9._\-]+" title="請輸入英文或數字"
+                 class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-shadow" 
+                 placeholder="請輸入 LINE ID (限英數)">
+        </div>
+
+        <!-- 提交按鈕 -->
+        <button type="submit" id="submitBtn"
+                class="w-full bg-[#E5684B] hover:bg-[#d4583d] text-white font-bold py-3 px-4 rounded-xl shadow-md transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#E5684B]">
+          送出報名資料
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyd1B-hVM1TIEdKHYYI7CnZgf8ljfYrLXC5PeqGRlpbfHTWwtHgMFvGRB5XgLz951RC/exec'; 
+
+    function switchContactMode() {
+      const type = document.querySelector('input[name="contact_type"]:checked').value;
+      const input = document.getElementById('contact_info');
+      input.value = ''; 
+      
+      if (type === 'LINE ID') {
+        input.type = 'text';
+        input.placeholder = '請輸入 LINE ID (限英數)';
+        input.pattern = '[A-Za-z0-9._\\-]+';
+        input.title = '請輸入英文或數字';
+      } else {
+        input.type = 'tel';
+        input.placeholder = '請輸入手機號碼 (限數字)';
+        input.pattern = '[0-9]+';
+        input.title = '請輸入數字';
+      }
+    }
+
+    const form = document.getElementById('registrationForm');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault(); 
+      
+      const checkedGroups = document.querySelectorAll('input[name="groups"]:checked');
+      if(checkedGroups.length === 0) {
+        alert("請至少選擇一個組別！");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerText = '資料送出中...';
+      submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        body: new FormData(form)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if(data.result === 'success') {
+          alert('報名成功！期待在迎新活動見到您。');
+          form.reset(); 
+          switchContactMode(); 
+        } else {
+          alert('發生錯誤，請稍後再試。');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('網路錯誤，資料可能未送出。');
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerText = '送出報名資料';
+        submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+      });
+    });
+  </script>
+</body>
+</html>
